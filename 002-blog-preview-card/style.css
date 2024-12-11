@@ -22,7 +22,7 @@ body {
   height: 100vh;
 }
 
-section {
+main {
   display: flex;
   justify-content: center;
   align-items: center;
