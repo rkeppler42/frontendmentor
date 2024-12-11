@@ -1,0 +1,234 @@
+@font-face {
+  font-family: "Outfit";
+  src: url(./fonts/Outfit-VariableFont_wght.ttf) format("truetype-variations");
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Young Serif";
+  src: url(./fonts/YoungSerif-Regular.ttf) format("truetype-variations");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  --rose-800: #7a284e;
+  --rose-50: #fff7fb;
+  --stone-900: #312e2c;
+  --stone-600: #5f564d;
+  --stone-150: #e3ddd7;
+  --stone-100: #f3e5d7;
+  --brown-800: #854632;
+  --white: #fff;
+
+  --primary-font: "Outfit";
+  --header-font: "Young Serif";
+
+  --spacing-100: 0.5rem;
+  --spacing-150: 0.75rem;
+  --spacing-200: 1rem;
+  --spacing-300: 1.5rem;
+  --spacing-400: 2rem;
+  --spacing-500: 2.5rem;
+  --spacing-600: 3rem;
+  --spacing-1600: 8rem;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  font-family: var(--primary-font);
+  font-size: 1rem;
+  line-height: 150%;
+  color: var(--stone-600);
+  width: 100%;
+  max-width: 23.4375rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1,
+h2 {
+  font-family: var(--header-font);
+  line-height: 100%;
+}
+
+h2 {
+  font-size: 1.75rem;
+  color: var(--brown-800);
+  margin-bottom: var(--spacing-300);
+}
+
+.meta__emphasis,
+.instructions__emphasis {
+  font-weight: 600;
+}
+
+.recipe-header {
+  margin-bottom: var(--spacing-100);
+}
+
+.recipe-header__img {
+  width: 100%;
+  object-fit: contain;
+}
+
+section {
+  padding: var(--spacing-400);
+  position: relative;
+}
+
+.details__title {
+  font-size: 2.25rem;
+  margin-bottom: var(--spacing-300);
+  color: var(--stone-900);
+}
+
+.details__description {
+  font-weight: 400;
+  width: 100%;
+}
+
+.meta {
+  width: 83%;
+  padding: var(--spacing-300);
+  background-color: var(--rose-50);
+  border-radius: 0.75rem;
+}
+
+.meta__title {
+  color: var(--rose-800);
+  font-weight: 600;
+  margin-bottom: var(--spacing-200);
+}
+
+.meta__list,
+.ingredients__list,
+.instructions__list {
+  list-style: none;
+}
+
+.meta__item,
+.ingredients__item,
+.instructions__item {
+  position: relative;
+  margin-left: var(--spacing-500);
+  margin-bottom: var(--spacing-100);
+}
+
+.meta__item::before,
+.ingredients__item::before,
+.instructions__item::before {
+  position: absolute;
+  left: -2.3rem;
+}
+
+.meta__item::before {
+  color: var(--rose-800);
+}
+
+.meta__item::before,
+.ingredients__item::before {
+  content: "•";
+}
+
+.ingredients__item::before,
+.instructions__item::before {
+  color: var(--brown-800);
+}
+
+.instructions__list {
+  counter-reset: instruction;
+}
+
+.instructions__item::before {
+  counter-increment: instruction;
+  content: counter(instruction) ".";
+  font-weight: 600;
+}
+
+.ingredients {
+  width: 100%;
+}
+
+.ingredients::after,
+.instructions::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: var(--spacing-400);
+  right: var(--spacing-400);
+  height: 1px;
+  background-color: var(--stone-150);
+}
+
+.nutrition__table {
+  margin-top: var(--spacing-300);
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.nutrition__row:not(:last-child) .nutrition__cell {
+  border-bottom: 1px solid var(--stone-150);
+}
+
+.nutrition__cell {
+  width: 7.21875rem;
+  padding-top: var(--spacing-150);
+  padding-bottom: var(--spacing-150);
+  padding-left: var(--spacing-400);
+}
+
+.nutrition__cell--right {
+  color: var(--brown-800);
+  font-weight: 600;
+}
+
+@media (min-width: 48rem) {
+  body {
+    background-color: var(--stone-100);
+  }
+
+  main {
+    width: 100%;
+    max-width: 38.5rem;
+    margin: var(--spacing-1600) 0;
+    background-color: var(--white);
+    padding: var(--spacing-500);
+    border-radius: 1.5rem;
+  }
+
+  section {
+    padding: var(--spacing-400) 0;
+    position: relative;
+  }
+
+  .recipe-header__img {
+    border-radius: 0.75rem;
+  }
+
+  .details__title {
+    font-size: 2.5rem;
+  }
+
+  .meta {
+    width: 100%;
+  }
+}
+
+@media (min-width: 90rem) {
+  main {
+    max-width: 46rem;
+  }
+}
